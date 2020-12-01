@@ -89,11 +89,6 @@ if __name__ == '__main__':
     print('\nBASKETBALL TEAM STATS TOOL')
     players_list = clean_data() 
     balanced_teams_list = balance_teams()
-    # for each team print:
-        # teams name (as a string)
-        # total players on the team (as an integer)
-        # the player names as strings, separated by commas
-    # may need for teams_list to include iterable data for below to work.
     while True:
         print('\n'+'-'*4+'MENU'+'-'*4)
         print("\nHere are your choices:")
@@ -127,11 +122,5 @@ if __name__ == '__main__':
                     print("Oops, that's not one of the available teams. Please enter one of the numbers below.\n\n|\nV")
                     continue
             display_team(team_selection-1)
-            # team_number = 0
             continue
-    # Make sure this is not needed:
-    # for team in balanced_teams_list:
-    #     print(f'\nTeam: {team}')
-    #     print(f'# of Players: {len(balanced_teams_list[team])}')
-    # print('')
             
