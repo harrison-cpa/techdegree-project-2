@@ -95,32 +95,34 @@ if __name__ == '__main__':
         print("1) Display Team Stats")
         print("2) Quit\n")
         try:
-            user_selection = int(input("Enter an option > "))
+            user_selection = input("Enter an option > ")
+            user_selection = int(user_selection)
             if user_selection != 1 and user_selection != 2:
                 raise ValueError
+            elif user_selection == 2:
+                print('\nHave a great day!\n')
+                break
+            elif user_selection == 1:
+                while True:
+                    print('')
+                    print('Teams:\n'+'-'*12)
+                    team_number = 1
+                    for team in TEAMS:
+                        print(f'{team_number}) {team}')
+                        team_number += 1
+                    print('')
+                    try:
+                        team_selection = input('Enter an option > ')
+                        team_selection = int(team_selection)
+                        if team_selection not in range(1, team_number):
+                            raise ValueError
+                        else:
+                            break
+                    except ValueError:
+                        print("Oops, that's not one of the available teams. Please enter one of the numbers below.\n\n|\nV")
+                        continue
+                display_team(team_selection-1)
+                continue
         except ValueError:
-                print("\nSorry that choice is not available. You must select either 1 or 2.\nBelow is the menu again.\n\n|\nV")
-        if user_selection == 2:
-            print('\nHave a great day!\n')
-            break
-        elif user_selection == 1:
-            while True:
-                print('')
-                print('Teams:\n'+'-'*12)
-                team_number = 1
-                for team in TEAMS:
-                    print(f'{team_number}) {team}')
-                    team_number += 1
-                print('')
-                try:
-                    team_selection = int(input('Enter an option > '))
-                    if team_selection not in range(1, team_number):
-                        raise ValueError
-                    else:
-                        break
-                except ValueError:
-                    print("Oops, that's not one of the available teams. Please enter one of the numbers below.\n\n|\nV")
-                    continue
-            display_team(team_selection-1)
-            continue
+            print("\nSorry that choice is not available. You must select either 1 or 2.\nBelow is the menu again.\n\n|\nV")
             
